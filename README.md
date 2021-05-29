@@ -1,1 +1,1 @@
-# RabbitMQ-SignalR-Example
+# RabbitMQ SignalR Example
