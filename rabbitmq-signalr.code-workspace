@@ -1,0 +1,86 @@
+{
+	"folders": [
+		{
+			"path": "./",
+			"name": "Workspace Folder",
+		},
+		{
+			"path": "./Docker",
+			"name": "Docker",
+		},
+		{
+			"path": "./Producer",
+		},
+		{
+			"path": "./Receiver",
+		},
+	],
+	"settings": {
+		"files.exclude": {
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true,
+			"**/obj": true,
+			"**/bin": true,
+		}
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Start RabbitMQ",
+				"type": "shell",
+				"command": "docker",
+				"args": [
+					"compose",
+					"up",
+					"-d"
+				],
+				"options": {
+					"cwd": "${workspaceFolder}/Docker"
+				},
+				"presentation": {
+					"reveal": "silent"
+				},
+				"problemMatcher": []
+			},
+			{
+				"label": "Start Producer",
+				"command": "dotnet",
+				"type": "process",
+				"args": [
+					"watch",
+					"run"
+				],
+				"options": {
+					"cwd": "${workspaceFolder}/Producer"
+				},
+				"problemMatcher": "$msCompile"
+			},
+			{
+				"label": "Start Receiver",
+				"command": "dotnet",
+				"type": "process",
+				"args": [
+					"watch",
+					"run"
+				],
+				"options": {
+					"cwd": "${workspaceFolder}/Receiver"
+				},
+				"problemMatcher": "$msCompile"
+			},
+			{
+				"label": "Start App",
+				"dependsOn": [
+					"Start RabbitMQ",
+					"Start Producer",
+					"Start Receiver"
+				],
+				"problemMatcher": []
+			}
+		]
+	}
+}
