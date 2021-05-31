@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+    rabbitmq:
+        image: rabbitmq:3-management
+        hostname: rabbitmq-example
+        volumes:
+            - ./rabbitmq/data:/var/lib/rabbitmq/mnesia/rabbit@rabbitmq-example
+            - ./rabbitmq/logs:/var/log/rabbitmq/log
+        ports:
+            - 5672:5672
+            - 15672:15672
