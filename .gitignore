@@ -350,4 +350,4 @@ MigrationBackup/
 .ionide/
 
 # RabbitMQ log files and data
-rabbitmq
+Docker/rabbitmq
