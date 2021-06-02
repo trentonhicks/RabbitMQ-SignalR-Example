@@ -1,18 +1,16 @@
 {
 	"folders": [
 		{
-			"path": "./",
-			"name": "Workspace Folder",
-		},
-		{
 			"path": "./Docker",
 			"name": "Docker",
 		},
 		{
 			"path": "./Producer",
+			"name": "Producer",
 		},
 		{
 			"path": "./Receiver",
+			"name": "Receiver",
 		},
 	],
 	"settings": {
@@ -39,7 +37,7 @@
 					"-d"
 				],
 				"options": {
-					"cwd": "${workspaceFolder}/Docker"
+					"cwd": "${workspaceFolder:Docker}"
 				},
 				"presentation": {
 					"reveal": "silent"
@@ -55,7 +53,7 @@
 					"run"
 				],
 				"options": {
-					"cwd": "${workspaceFolder}/Producer"
+					"cwd": "${workspaceFolder:Producer}"
 				},
 				"problemMatcher": "$msCompile"
 			},
@@ -68,7 +66,7 @@
 					"run"
 				],
 				"options": {
-					"cwd": "${workspaceFolder}/Receiver"
+					"cwd": "${workspaceFolder:Receiver}"
 				},
 				"problemMatcher": "$msCompile"
 			},
